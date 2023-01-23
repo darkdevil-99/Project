@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css\style.css' %}">
+</head>
+<body>
+ <center>
+    <h2>LOGIN</h2>
+
+    <div id="box">
+        <form action="" method="post">
+        {% csrf_token %}
+        <br><br><br>
+        <tr id="use">
+            <th>USERNAME : </th><td><input type="text" name="user" placeholder="username"></td>
+        </tr>
+        <br><br><br>
+        <tr id="psw">
+            <th>PASSWORD : </th><td><input type="text" name="psw" placeholder="password"></td>
+        </tr>
+        <br><br><br>
+        <tr>
+            <td><input type="submit"></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><input id="sign" type="checkbox" name="remember" checked="checked">Remember-me</td>
+        </tr>
+        <br><br>
+        <div>
+        <tr>
+            <td><a href="{% url 'signup' %}"> Create account</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'password' %}">Forgot Password </a></td>
+        </tr>
+        </div>
+        </form>
+    </div>
+    {% for i in messages %}
+        <h3>{{i}}</h3>
+        {% endfor %}
+</center>
+</body>
+</html>

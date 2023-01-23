@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css\style1.css'%}">
+</head>
+<body>
+<center>
+    <h3>Register Account</h3>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+        <br><br><br>
+        <tr>
+            <th>Username : </th><td><input type="text" name="username" placeholder="enter username"></td>
+        </tr>
+        <br><br><br>
+        <tr>
+            <th>Email : </th><td><input type="email" name="email" placeholder="enter email-id"></td>
+        </tr>
+        <br><br><br>
+        <tr>
+            <th>Password : </th><td><input type="text" name="psd" placeholder="enter password"></td>
+        </tr><br><br><br>
+        <tr>
+            <th>Confirm Password : </th><td><input type="text" name="confirm" placeholder="enter confirm password"></td>
+        </tr>
+        <br><br><br>
+        <tr>
+            <td><input type="submit"></td>
+        </tr>
+            <br><br>
+            <tr>
+                <td>Back to <a href="{% url 'login' %}">Login-Page</a></td>
+            </tr>
+
+            </form>
+    </div>
+
+    {% for i in messages %}
+        <h3>{{i}}</h3>
+     {% endfor %}
+</center>
+
+</body>
+</html>
